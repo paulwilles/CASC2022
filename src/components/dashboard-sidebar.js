@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Box, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
 import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
 import { Cog as CogIcon } from '../icons/cog';
 import { Selector as SelectorIcon } from '../icons/selector';
@@ -139,6 +140,11 @@ export const DashboardSidebar = (props) => {
           }}
         />
         <Box sx={{ flexGrow: 1 }}>
+          <NavItem
+            icon={<InfoIcon fontSize="small" />}
+            href="/aboutus"
+            title="about us"
+          />
           <AuthenticatedTemplate>
             {items.map((item) => (
               <NavItem

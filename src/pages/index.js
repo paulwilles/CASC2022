@@ -1,5 +1,9 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from '@azure/msal-react';
 import { Budget } from '../components/dashboard/budget';
 import { LatestOrders } from '../components/dashboard/latest-orders';
 import { LatestProducts } from '../components/dashboard/latest-products';
@@ -109,7 +113,12 @@ const Dashboard = () => (
 
 Dashboard.getLayout = (page) => (
   <DashboardLayout>
-    {page}
+    <AuthenticatedTemplate>
+      {page}
+    </AuthenticatedTemplate>
+    <UnauthenticatedTemplate>
+      <p>This will only render if a user is not signed-in.</p>
+    </UnauthenticatedTemplate>
   </DashboardLayout>
 );
 

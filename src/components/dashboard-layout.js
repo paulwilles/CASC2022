@@ -34,12 +34,7 @@ export const DashboardLayout = (props) => {
             width: '100%'
           }}
         >
-          <AuthenticatedTemplate>
-            {children}
-          </AuthenticatedTemplate>
-          <UnauthenticatedTemplate>
-            <p>This will only render if a user is not signed-in.</p>
-          </UnauthenticatedTemplate>
+          {children}
         </Box>
       </DashboardLayoutRoot>
       <DashboardNavbar onSidebarOpen={() => setSidebarOpen(true)} />

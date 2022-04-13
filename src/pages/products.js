@@ -1,5 +1,9 @@
 import Head from 'next/head';
 import { Box, Container, Grid, Pagination } from '@mui/material';
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from '@azure/msal-react';
 import { products } from '../__mocks__/products';
 import { ProductListToolbar } from '../components/product/product-list-toolbar';
 import { ProductCard } from '../components/product/product-card';
@@ -59,7 +63,12 @@ const Products = () => (
 
 Products.getLayout = (page) => (
   <DashboardLayout>
-    {page}
+    <AuthenticatedTemplate>
+      {page}
+    </AuthenticatedTemplate>
+    <UnauthenticatedTemplate>
+      <p>This will only render if a user is not signed-in.</p>
+    </UnauthenticatedTemplate>
   </DashboardLayout>
 );
 

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { AppBar, Avatar, Badge, Box, IconButton, Toolbar, Tooltip, useTheme } from '@mui/material';
+import { AppBar, Avatar, Badge, Box, IconButton, Toolbar, Tooltip, Typography, useTheme } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -52,12 +52,18 @@ export const DashboardNavbar = (props) => {
           >
             <MenuIcon fontSize="small" />
           </IconButton>
+          <Typography
+            variant="h2"
+            color="text.secondary"
+          >
+            Campbelltown Amateur Swimming Club
+          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
           <Tooltip title="Search">
             <IconButton sx={{ ml: 1 }}>
               <SearchIcon fontSize="small" />
             </IconButton>
           </Tooltip>
-          <Box sx={{ flexGrow: 1 }} />
           <IconButton
             sx={{ ml: 1 }}
             onClick={() => dispatch({type: 'toggle'})}
@@ -65,11 +71,6 @@ export const DashboardNavbar = (props) => {
           >
             {state.theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
-          <Tooltip title="Contacts">
-            <IconButton sx={{ ml: 1 }}>
-              <UsersIcon fontSize="small" />
-            </IconButton>
-          </Tooltip>
           <Tooltip title="Notifications">
             <IconButton sx={{ ml: 1 }}>
               <Badge
@@ -81,16 +82,6 @@ export const DashboardNavbar = (props) => {
               </Badge>
             </IconButton>
           </Tooltip>
-          <Avatar
-            sx={{
-              height: 40,
-              width: 40,
-              ml: 1
-            }}
-            src="/static/images/avatars/avatar_1.png"
-          >
-            <UserCircleIcon fontSize="small" />
-          </Avatar>
         </Toolbar>
       </DashboardNavbarRoot>
     </>

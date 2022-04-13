@@ -1,5 +1,9 @@
 import Head from 'next/head';
 import { Box, Container, Typography } from '@mui/material';
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from '@azure/msal-react';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { SettingsNotifications } from '../components/settings/settings-notifications';
 import { SettingsPassword } from '../components/settings/settings-password';
@@ -36,7 +40,12 @@ const Settings = () => (
 
 Settings.getLayout = (page) => (
   <DashboardLayout>
-    {page}
+    <AuthenticatedTemplate>
+      {page}
+    </AuthenticatedTemplate>
+    <UnauthenticatedTemplate>
+      <p>This will only render if a user is not signed-in.</p>
+    </UnauthenticatedTemplate>
   </DashboardLayout>
 );
 
